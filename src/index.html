@@ -3,104 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Animation Test</title>
-  <link rel="stylesheet" href="animation.css">
   <style>
     html,
     body {
       width: 100%;
       height: 100%;
     }
-
-    .stage-container {
-      width: 200px;
-      height: 300px;
-      margin: auto;
-      overflow: hidden;
-    }
-
-    .stage-container .stage .one,
-    .stage-container .stage .two {
-      font-size: 100px;
-      text-align: center;
-      line-height: 300px;
-      color: #fff;
-    }
-
-    .stage-container .stage .one {
-      background-color: #f00;
-    }
-
-    .stage-container .stage .two {
-      background-color: #00f;
-    }
-
-    .btns {
-      margin: 30px;
-    }
-
-    .btns button {
-      width: 70px;
-      height: 30px;
-    }
   </style>
   <script src="lib.js"></script>
 </head>
 <body>
-<div id="container" class="stage-container animation-stage-container">
-  <div class="animation-stage stage">
-    <div id="one" class="one">1</div>
-    <div id="two" class="two">2</div>
-  </div>
-</div>
-<div class="btns">
-  <div>
-    <h4>Slide</h4>
-    <button data-ani="slide-left">left</button>
-    <button data-ani="slide-right">right</button>
-    <button data-ani="slide-up">up</button>
-    <button data-ani="slide-down">down</button>
-  </div>
-  <div>
-    <h4>Push</h4>
-    <button data-ani="push-left">left</button>
-    <button data-ani="push-right">right</button>
-    <button data-ani="push-up">up</button>
-    <button data-ani="push-down">down</button>
-  </div>
-  <div>
-    <h4>Flip</h4>
-    <button data-ani="flip-left">left</button>
-    <button data-ani="flip-right">right</button>
-    <button data-ani="flip-up">up</button>
-    <button data-ani="flip-down">down</button>
-  </div>
-  <div>
-    <h4>Special</h4>
-    <button data-ani="none">None</button>
-    <button data-ani="fade">fade</button>
-  </div>
+<h1>npm package develop boilerplate</h1>
+<div id="container">
 </div>
 <script>
-  var container = document.getElementById("container");
-  var one = document.getElementById("one");
-  var two = document.getElementById("two");
-  var animation = new Animation({
-    container: container,
-    onStart: function () {
-      console.log('start');
-    },
-    onEnd: function () {
-      console.log('end');
-    }
-  });
-  function onClick(e) {
-    var ani = e.target.dataset.ani;
-    animation.animate(ani);
-  }
-  var btns = document.getElementsByTagName('button');
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener('click', onClick);
-  }
+  var bar = Foo(1, 2);
+  document.write('1 + 2 = ' + bar);
 </script>
 </body>
 </html>
