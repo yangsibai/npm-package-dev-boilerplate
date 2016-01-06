@@ -5,7 +5,7 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var webpackConfig = require('./webpack.config');
 
-var PORT = 8080;
+var PORT = 3000;
 var myDevConfig = Object.create(webpackConfig);
 myDevConfig.entry.unshift('webpack-dev-server/client?http://localhost:' + PORT); // for inline refresh webpack dev server
 myDevConfig.devtool = "sourcemap";
