@@ -1,12 +1,10 @@
-;(function (global) {
+'use strict';
+import React from 'react';
+import { render } from 'react-dom';
+import './style.less';
 
-    function Foo(a, b) {
-        return a + b;
-    }
+import FooComponent from './FooComponent.jsx';
 
-    if (typeof module !== 'undefined' && module.exports) {
-        module.exports.Foo = Foo;
-    } else {
-        global.Foo = Foo;
-    }
-}(this));
+render((
+    <FooComponent />
+), document.getElementById('container'));
