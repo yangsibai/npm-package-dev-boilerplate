@@ -1,7 +1,9 @@
-## Animation
+## npm package develop boilerplate
 
-**Donot use this in production, I'm working on it.**
+### How to use?
 
-Some basic css3 animations.
-
-[Demo](https://yangsibai.github.com/Animation)
++ fork this repo
++ npm install gulp -g
++ npm install
++ gulp
++ open `http://localhost:3000/` in your favorite browser
