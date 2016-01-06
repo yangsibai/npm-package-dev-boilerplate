@@ -6,33 +6,25 @@ var WebpackDevServer = require('webpack-dev-server');
 var webpackConfig = require('./webpack.config');
 
 var PORT = 3000;
-var myDevConfig = Object.create(webpackConfig);
-myDevConfig.entry.unshift('webpack-dev-server/client?http://localhost:' + PORT); // for inline refresh webpack dev server
-myDevConfig.devtool = "sourcemap";
-myDevConfig.debug = true;
-var devCompiler = webpack(myDevConfig);
 
 gulp.task('default', ['webpack-dev-server']);
 
 gulp.task('build', ['webpack:build']);
 
-gulp.task("webpack:build-dev", function (cb) {
-    devCompiler.run(function (err, stats) {
-        if (err) throw new gutil.PluginError("webpack:build-dev", err);
-        gutil.log("[webpack:build-dev]", stats.toString({
-            colors: true
-        }));
-        cb();
-    });
-});
-
 gulp.task('webpack-dev-server', function (cb) {
     var myConfig = Object.create(webpackConfig);
+    myConfig.entry.unshift('webpack-dev-server/client?http://localhost:' + PORT, 'webpack/hot/dev-server'); // for inline refresh webpack dev server
+    //myConfig.devtool = "sourcemap";
     myConfig.devtool = "eval";
     myConfig.debug = true;
 
+    myConfig.plugins = myConfig.plugins.concat(
+        new webpack.HotModuleReplacementPlugin()
+    );
+
     new WebpackDevServer(webpack(myConfig), {
         publicPath: "/" + myConfig.output.publicPath,
+        hot: true,
         stats: {
             colors: true
         }
@@ -40,7 +32,6 @@ gulp.task('webpack-dev-server', function (cb) {
         if (err) throw new gutil.PluginError("webpack-dev-server", err);
         // Server listening
         gutil.log("[webpack-dev-server]", "http://localhost:" + PORT + "/webpack-dev-server/index.html");
-
         // keep the server alive or continue?
         cb();
     });
