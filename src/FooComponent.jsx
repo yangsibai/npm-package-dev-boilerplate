@@ -1,9 +1,10 @@
 'use strict';
 import {Component, PropTypes} from 'react';
+import {add} from './bar';
 
 class FooComponent extends Component {
     render() {
-        return <span onClick={this.props.onClick}>Foo Component</span>;
+        return <span onClick={this.props.onClick}>Foo Component, 1 + 2 = {add(1, 2)}</span>;
     }
 }
 
@@ -18,4 +19,4 @@ FooComponent.defaultProps = {
     }
 };
 
-export  default FooComponent;
+export default FooComponent;
