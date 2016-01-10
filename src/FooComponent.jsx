@@ -4,7 +4,7 @@ import {add} from './bar';
 
 class FooComponent extends Component {
     render() {
-        return <span onClick={this.props.onClick}>Foo Component, 1 + 2 = {add(1, 2)}</span>;
+        return <span onClick={this.props.onClick}>Foo Component, 1 + 2 = <span ref="result">{add(1, 2)}</span></span>;
     }
 }
 
