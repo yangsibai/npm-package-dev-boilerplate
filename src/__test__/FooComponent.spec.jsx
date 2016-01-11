@@ -5,6 +5,8 @@ import * as React from 'react';
 import FooComponent from '../FooComponent.jsx';
 import {assert} from 'chai';
 
+window.React = React;
+
 import {renderIntoDocument} from 'react-addons-test-utils';
 
 describe('FooComponent test', ()=> {
@@ -13,6 +15,6 @@ describe('FooComponent test', ()=> {
             <FooComponent />
         );
         var resultNode = foo.refs.result;
-        assert.equal(resultNode.value, '3');
+        assert.equal(resultNode.innerHTML, '3');
     });
 });
